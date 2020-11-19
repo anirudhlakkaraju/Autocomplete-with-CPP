@@ -1,0 +1,63 @@
+\hypertarget{class_l_f_u_cache}{}\doxysection{L\+F\+U\+Cache Class Reference}
+\label{class_l_f_u_cache}\index{LFUCache@{LFUCache}}
+
+
+L\+FU Cache class for word frequency related calculations.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_l_f_u_cache_a062fa7aee552fcc3366c74117a4b634c}\label{class_l_f_u_cache_a062fa7aee552fcc3366c74117a4b634c}} 
+\mbox{\hyperlink{class_l_f_u_cache_a062fa7aee552fcc3366c74117a4b634c}{L\+F\+U\+Cache}} ()
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_l_f_u_cache_a47a945470bf66c8e4c0139ad7a76b514}\label{class_l_f_u_cache_a47a945470bf66c8e4c0139ad7a76b514}} 
+int \mbox{\hyperlink{class_l_f_u_cache_a47a945470bf66c8e4c0139ad7a76b514}{get}} (string word)
+\begin{DoxyCompactList}\small\item\em used to get the word from the cache \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}{put}} (string word)
+\begin{DoxyCompactList}\small\item\em Get frequency of word. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}{print}} ()
+\begin{DoxyCompactList}\small\item\em Insert word into cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+L\+FU Cache class for word frequency related calculations. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}\label{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}} 
+\index{LFUCache@{LFUCache}!print@{print}}
+\index{print@{print}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void L\+F\+U\+Cache\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Insert word into cache. 
+
+prints the number of occurences of a word mapping the word to the counter and printing it
+
+checks for 0 size cache, i.\+e counter is 0\mbox{\Hypertarget{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}\label{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}} 
+\index{LFUCache@{LFUCache}!put@{put}}
+\index{put@{put}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily void L\+F\+U\+Cache\+::put (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
+
+
+
+Get frequency of word. 
+
+used to update the cache used to store the fruquency for a particular word
+
+used to erase words
+
+used to enter words or push them
+
+checks if max capacity is reached
+
+delete the word list which has minimum frequency
+
+checks that new word isn\textquotesingle{}t already present in the cache
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+auto\+\_\+complete.\+cpp\end{DoxyCompactItemize}
