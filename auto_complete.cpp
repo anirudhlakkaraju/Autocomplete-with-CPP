@@ -253,7 +253,7 @@ void Trie::autosuggest(string word, LFUCache &cache)
     }
 
     cout << "There are " << suggestions.size() << " suggestions for the prefix \"" << word << "\" : " << endl;
-
+ 
     // Rank suggestions according to cache
     int i;
     vector<pair<int, string>> rank;
