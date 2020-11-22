@@ -1,16 +1,16 @@
-#include<bits/stdc++.h>
+#include<bits/stdc++.h> 
 using namespace std;
 
-const int CHARACTERS = 95;
+const int CHARACTERS = 95;  ///< ASCII range of characters.
 
 
+/// Creating a TRIE NODE structure.
 struct TrieNode
 {
-    // Struct data members
-    bool isWord;
-    TrieNode *next[CHARACTERS];
-
-    // TrieNode struct constructor
+    bool isWord;    ///< Checks if word is valid word
+    TrieNode *next[CHARACTERS]; ///< Pointer to next TrieNode
+    
+    /// Trie Node struct constructor.
     TrieNode()
     {
         isWord = false;
@@ -22,40 +22,38 @@ struct TrieNode
 };
 
 
-class LFUCache 
+/// Least Frequently Used (LFU) Cache class to store most frequently selected words.
+class LFUCache
 {
     private:
 
-        // Private data members
-        int capacity, minFreq;
+        int capacity;   ///< Max capacity of cache
+        int minFreq;    ///< Current smallest word frequency in cache
 
-        unordered_map<string, int> word_freq;
-        unordered_map<int, list<string>> freq_wordList;
-        unordered_map<string, list<string>::iterator> word_listIter;
+        unordered_map<string, int> word_freq;   ///< Word -> Frequency of usage
+        unordered_map<int, list<string>> freq_wordList; ///< Frequency -> DLL containing words with that frequency of usage
+        unordered_map<string, list<string>::iterator> word_listIter;    ///< Word -> Pointer to DLL node that contains it 
 
     public:
-
-        // Class constructor
+        
+        /// LFU Class constructor.
         LFUCache()
         {
             capacity = 1000;
         }
-
-        // PUBLIC METHODS :
-
-        // Get frequency of word
-        int get(string word);
-
-        // Insert word into cache 
+        
+        int get(string word);   
+        
         void put(string word);
 
-        // Print cache
         void print();
 };
 
 
 int LFUCache::get(string word) 
 {
+    /// Gets frequency of word, if it exists in the cache.
+
     if(word_freq.find(word) == word_freq.end())    
         return 0;
 
@@ -65,12 +63,17 @@ int LFUCache::get(string word)
 
 void LFUCache::put(string word) 
 {
+    /// Inserts word into the cache and updates its frequency. @n
+    /// If word already exists in the cache then simply increments its frequency. @n
+    /// If word does not exist in the cache, then two cases arise -
+    /// 1. The max capacity is reached - Ejects word(s) with minFreq to make space and then inserts given word.
+    /// 2. The max capacity is not reached - Simply inserts the given word which now has minFreq.
     if(capacity <= 0)  return;
-    
+
     if(get(word) != 0)
     {
         int freq = word_freq[word];
-
+        
         freq_wordList[freq++].erase(word_listIter[word]);
         freq_wordList[freq].push_front(word);
         word_listIter[word] = freq_wordList[freq].begin();
@@ -80,6 +83,7 @@ void LFUCache::put(string word)
 
         return;
     }
+
 
     if (word_freq.size() == capacity) {
         string delWord = freq_wordList[minFreq].back();
@@ -97,6 +101,8 @@ void LFUCache::put(string word)
 
 void LFUCache::print()
 {    
+    /// Prints contents of the cache with corresponding frequency of usage.
+
     unordered_map<string, int>::iterator it;
 
     if(word_freq.size() == 0){
@@ -110,39 +116,35 @@ void LFUCache::print()
 }
 
 
-class Trie
+/// The class for TRIE data structure, whose objects contain loaded dictionary.
+class Trie 
 {
     private:
 
-        // Private data member - root node of trie
-        TrieNode *root;
+        TrieNode *root; ///< Root node 
 
     public:
 
-        // Trie Class constructor
+        /// Trie Class constructor.
         Trie()
         {
             root = new TrieNode();
         }
         
-        // PUBLIC METHODS : 
-
-        // Inserts word into Trie
         void insert(string word);
 
-        // Searches for word in trie
         bool search(string word);
 
-        // Gets all words with given prefix
         vector<string> get_all_words(string word);
 
-        // Suggests valid words
         void autosuggest(string word, LFUCache &cache);
 };
 
 
 void Trie::insert(string word)
 {
+    /// Inserts given word in the Trie, then marks isWord as True.
+    
     TrieNode* temp = root;
     
     for(char &c:word)
@@ -155,17 +157,17 @@ void Trie::insert(string word)
         temp = temp->next[c - ' '];
     }
     
-    // Make isWord true to indicate complete word
     temp->isWord = true;
 }
 
 
 bool Trie::search(string word)
 {   
-    // If Trie is empty
+    /// Searches the Trie for given word, if it exists.
+
     if(root == NULL)    return false;
 
-    TrieNode* temp = root;
+    TrieNode* temp = root; 
     
     for(int i=0; i<word.length(); i++)
     {
@@ -182,38 +184,36 @@ bool Trie::search(string word)
 
 vector<string> Trie::get_all_words(string word)
 {
-    // If Trie is empty
+    /// Returns a vector all words with given word as prefix. @n
+    /// These are the suggestions the user expects for their input in the entry field. @n
+    /// Breadth First Search (BFS) is performed from the end of the prefix (given word) to find all valid 
+    /// words by checking for isWord.
+
     if(root == NULL)    return {};
 
     TrieNode* temp = root;
 
     for(int i=0; i<word.length(); i++)
     {
-        // Index of char word[i] in TrieNode;
         int ind = (int)word[i] - ' ';
 
-        // If child node at ind of TrieNode is NULL, then word is not a valid prefix
         if(temp->next[ind] == NULL) return {};
 
         temp = temp->next[ind];  
     }
 
-    // Array to store valid suggestions
     vector<string> suggestions;
 
-    // If this word is a valid prefix then BFS to find all words
     queue<pair<TrieNode*, string>> q;
     
     q.push(make_pair(temp, word));
     string currWord;
 
-    // BFS  
     while(!q.empty())
     {
         temp = q.front().first;
         currWord = q.front().second;
 
-        // If this word is a valid word, then add to all_words
         if(temp->isWord)
         {
             suggestions.push_back(currWord);
@@ -225,7 +225,6 @@ vector<string> Trie::get_all_words(string word)
         {
             if(temp->next[i] != NULL)
             {
-                // Next word with prefix as given word found
                 string nextWord = currWord + char(i + ' ');
                 q.push(make_pair(temp->next[i], nextWord));
             }
@@ -238,13 +237,15 @@ vector<string> Trie::get_all_words(string word)
 
 void Trie::autosuggest(string word, LFUCache &cache)
 {
-    // If empty word then no suggestions
+    /// Prints the suggestions to the inputs of user in the entry field. @n
+    /// Gets all valid words which have prefix as given word from get_all_words() method. @n
+    /// Displays the suggestions according to their usage (frequencies), which are obtained from the LFU cache. @n
+    /// Then lets the user select their desired suggestion and updates the cache.
+    
     if(word.size() == 0)    return;
 
-    // If valid word, then print all words for which given word is prefix
-    vector<string> suggestions = get_all_words(word);
-
-    // Print all suggestions
+   
+    vector<string> suggestions = get_all_words(word); 
 
     if(suggestions.size() == 0)
     {
@@ -254,7 +255,6 @@ void Trie::autosuggest(string word, LFUCache &cache)
 
     cout << "There are " << suggestions.size() << " suggestions for the prefix \"" << word << "\" : " << endl;
 
-    // Rank suggestions according to cache
     int i;
     vector<pair<int, string>> rank;
     for(i=0; i<suggestions.size(); i++)
@@ -265,13 +265,11 @@ void Trie::autosuggest(string word, LFUCache &cache)
     
     sort(rank.rbegin(), rank.rend());
 
-    // Display suggestions
     for(int i=0; i<suggestions.size(); i++)
     {
         cout << i+1 << ". " << rank[i].second << " " << rank[i].first << endl;
     }
 
-    // Select valid suggestion
     int sel = -1;
     do {
         cout << "Select suggestion (" << 1 << "-" << i << ") : ";
@@ -281,12 +279,10 @@ void Trie::autosuggest(string word, LFUCache &cache)
     }
     while(true);
 
-    // Selected suggestion
     string selection = rank[sel-1].second;
 
     cout << "\nSelected suggestion : " << selection << endl << endl;
 
-    // Update cache
     cache.put(selection);
 
     return;
@@ -294,6 +290,8 @@ void Trie::autosuggest(string word, LFUCache &cache)
 
 
 void createDict(Trie*  trie){
+    
+    /// Load the dictionary into Trie data structure using insert() method.
 
     int size;
     cout << "Enter dictionary size (100 for given dictionary) : ";
@@ -302,7 +300,7 @@ void createDict(Trie*  trie){
     string word;
     for(int i=0; i<size; i++){
         cin >> word;
-        trie->insert(word);
+        trie->insert(word); 
     }
     cout << endl;
 
@@ -311,8 +309,9 @@ void createDict(Trie*  trie){
 
 
 void printOperations(){
-    
-    // Operations
+
+    /// Displays choices of operations.
+
     cout    << "Operations - \n" 
             << "1. Load Dictionary \n"
             << "2. Entry Field \n"
@@ -323,16 +322,23 @@ void printOperations(){
 }
 
 
-int main()
+int main() 
 {
+    /// The main method. @n
+    /// Trie object is made to store and search the dictionary. LFU cache object is made to optimise suggestions. @n
+    /// Choices of following operations are given to user - 
+    /// 1. Load dictionary -  Allows user to load desired dictionary into Trie object.
+    /// 2. Entry Field - To enter prefixes.
+    /// 3. Check cache - Allows user to check cache contents.
+    /// 4. Exit - Terminate loop.
+
     Trie *trie = new Trie();
     LFUCache cache;
 
-    while(1)
+    while(1) 
     {
-        // Operations
-        printOperations();
 
+        printOperations();
         int operation;
         do {
             cout << "\nSelect Operation : ";
@@ -352,18 +358,18 @@ int main()
 
         case 2:
         {
-            string word;
+            string word; 
             cout << "Entry Field : ";
             cin >> word;
 
-            trie->autosuggest(word, cache);
+            trie->autosuggest(word, cache); 
 
             break;
         }
         
         case 3:
         {
-            cache.print();
+            cache.print(); 
             break;
         }
         

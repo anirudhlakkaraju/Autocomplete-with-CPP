@@ -1,0 +1,132 @@
+\hypertarget{class_l_f_u_cache}{}\doxysection{L\+F\+U\+Cache Class Reference}
+\label{class_l_f_u_cache}\index{LFUCache@{LFUCache}}
+
+
+Least Frequently Used (L\+FU) Cache class to store most frequently selected words.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_f_u_cache_a062fa7aee552fcc3366c74117a4b634c}{L\+F\+U\+Cache}} ()
+\begin{DoxyCompactList}\small\item\em L\+FU Class constructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_l_f_u_cache_a47a945470bf66c8e4c0139ad7a76b514}{get}} (string word)
+\item 
+void \mbox{\hyperlink{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}{put}} (string word)
+\item 
+void \mbox{\hyperlink{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}{print}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_l_f_u_cache_a7ac72f55c0498105d0a7d82641d95f35}{capacity}}
+\begin{DoxyCompactList}\small\item\em Max capacity of cache. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_l_f_u_cache_a5339bbd91d9149bb0abb5a6a283eacc1}{min\+Freq}}
+\begin{DoxyCompactList}\small\item\em Current smallest word frequency in cache. \end{DoxyCompactList}\item 
+unordered\+\_\+map$<$ string, int $>$ \mbox{\hyperlink{class_l_f_u_cache_ab4b8ba007e7c11d0d3ab62c9f6224a74}{word\+\_\+freq}}
+\begin{DoxyCompactList}\small\item\em Word -\/$>$ Frequency of usage. \end{DoxyCompactList}\item 
+unordered\+\_\+map$<$ int, list$<$ string $>$ $>$ \mbox{\hyperlink{class_l_f_u_cache_a00bcecd80e7316f7a30b00dfb143cfda}{freq\+\_\+word\+List}}
+\begin{DoxyCompactList}\small\item\em Frequency -\/$>$ D\+LL containing words with that frequency of usage. \end{DoxyCompactList}\item 
+unordered\+\_\+map$<$ string, list$<$ string $>$\+::iterator $>$ \mbox{\hyperlink{class_l_f_u_cache_aa7d33104f1f8528272b84a8c6e11e20e}{word\+\_\+list\+Iter}}
+\begin{DoxyCompactList}\small\item\em Word -\/$>$ Pointer to D\+LL node that contains it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Least Frequently Used (L\+FU) Cache class to store most frequently selected words. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_l_f_u_cache_a062fa7aee552fcc3366c74117a4b634c}\label{class_l_f_u_cache_a062fa7aee552fcc3366c74117a4b634c}} 
+\index{LFUCache@{LFUCache}!LFUCache@{LFUCache}}
+\index{LFUCache@{LFUCache}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{LFUCache()}{LFUCache()}}
+{\footnotesize\ttfamily L\+F\+U\+Cache\+::\+L\+F\+U\+Cache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+L\+FU Class constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_l_f_u_cache_a47a945470bf66c8e4c0139ad7a76b514}\label{class_l_f_u_cache_a47a945470bf66c8e4c0139ad7a76b514}} 
+\index{LFUCache@{LFUCache}!get@{get}}
+\index{get@{get}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily int L\+F\+U\+Cache\+::get (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
+
+Gets frequency of word, if it exists in the cache.\mbox{\Hypertarget{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}\label{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}} 
+\index{LFUCache@{LFUCache}!print@{print}}
+\index{print@{print}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void L\+F\+U\+Cache\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints contents of the cache with corresponding frequency of usage.\mbox{\Hypertarget{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}\label{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}} 
+\index{LFUCache@{LFUCache}!put@{put}}
+\index{put@{put}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily void L\+F\+U\+Cache\+::put (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
+
+Inserts word into the cache and updates its frequency. ~\newline
+If word already exists in the cache then simply increments its frequency. ~\newline
+If word does not exist in the cache, then two cases arise -\/
+\begin{DoxyEnumerate}
+\item The max capacity is reached -\/ Ejects word(s) with min\+Freq to make space and then inserts given word.
+\item The max capacity is not reached -\/ Simply inserts the given word which now has min\+Freq.
+\end{DoxyEnumerate}
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_l_f_u_cache_a7ac72f55c0498105d0a7d82641d95f35}\label{class_l_f_u_cache_a7ac72f55c0498105d0a7d82641d95f35}} 
+\index{LFUCache@{LFUCache}!capacity@{capacity}}
+\index{capacity@{capacity}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{capacity}{capacity}}
+{\footnotesize\ttfamily int L\+F\+U\+Cache\+::capacity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Max capacity of cache. 
+
+\mbox{\Hypertarget{class_l_f_u_cache_a00bcecd80e7316f7a30b00dfb143cfda}\label{class_l_f_u_cache_a00bcecd80e7316f7a30b00dfb143cfda}} 
+\index{LFUCache@{LFUCache}!freq\_wordList@{freq\_wordList}}
+\index{freq\_wordList@{freq\_wordList}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{freq\_wordList}{freq\_wordList}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$int, list$<$string$>$ $>$ L\+F\+U\+Cache\+::freq\+\_\+word\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Frequency -\/$>$ D\+LL containing words with that frequency of usage. 
+
+\mbox{\Hypertarget{class_l_f_u_cache_a5339bbd91d9149bb0abb5a6a283eacc1}\label{class_l_f_u_cache_a5339bbd91d9149bb0abb5a6a283eacc1}} 
+\index{LFUCache@{LFUCache}!minFreq@{minFreq}}
+\index{minFreq@{minFreq}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{minFreq}{minFreq}}
+{\footnotesize\ttfamily int L\+F\+U\+Cache\+::min\+Freq\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current smallest word frequency in cache. 
+
+\mbox{\Hypertarget{class_l_f_u_cache_ab4b8ba007e7c11d0d3ab62c9f6224a74}\label{class_l_f_u_cache_ab4b8ba007e7c11d0d3ab62c9f6224a74}} 
+\index{LFUCache@{LFUCache}!word\_freq@{word\_freq}}
+\index{word\_freq@{word\_freq}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{word\_freq}{word\_freq}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$string, int$>$ L\+F\+U\+Cache\+::word\+\_\+freq\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Word -\/$>$ Frequency of usage. 
+
+\mbox{\Hypertarget{class_l_f_u_cache_aa7d33104f1f8528272b84a8c6e11e20e}\label{class_l_f_u_cache_aa7d33104f1f8528272b84a8c6e11e20e}} 
+\index{LFUCache@{LFUCache}!word\_listIter@{word\_listIter}}
+\index{word\_listIter@{word\_listIter}!LFUCache@{LFUCache}}
+\doxysubsubsection{\texorpdfstring{word\_listIter}{word\_listIter}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$string, list$<$string$>$\+::iterator$>$ L\+F\+U\+Cache\+::word\+\_\+list\+Iter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Word -\/$>$ Pointer to D\+LL node that contains it. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{auto__complete_8cpp}{auto\+\_\+complete.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,91 @@
+\hypertarget{class_trie}{}\doxysection{Trie Class Reference}
+\label{class_trie}\index{Trie@{Trie}}
+
+
+The class for T\+R\+IE data structure, whose objects contain loaded dictionary.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_trie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_trie}{Trie}} Class constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_trie_a2e5d02c2b33172ae491652f44b14a7bc}{insert}} (string word)
+\item 
+bool \mbox{\hyperlink{class_trie_a5e20f592f090de30bda3b4bb8966e534}{search}} (string word)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_trie_a76b192838876fd9bff8be25b7677de85}{get\+\_\+all\+\_\+words}} (string word)
+\item 
+void \mbox{\hyperlink{class_trie_a8eaf81448d8b64ab7cea6d1590164e7b}{autosuggest}} (string word, \mbox{\hyperlink{class_l_f_u_cache}{L\+F\+U\+Cache}} \&cache)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_trie_node}{Trie\+Node}} $\ast$ \mbox{\hyperlink{class_trie_a052cecab75ca88758778d340ed002d66}{root}}
+\begin{DoxyCompactList}\small\item\em Root node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The class for T\+R\+IE data structure, whose objects contain loaded dictionary. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_trie_a6af57e9f25d0d0a2d59eea5a4a802908}\label{class_trie_a6af57e9f25d0d0a2d59eea5a4a802908}} 
+\index{Trie@{Trie}!Trie@{Trie}}
+\index{Trie@{Trie}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{Trie()}{Trie()}}
+{\footnotesize\ttfamily Trie\+::\+Trie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{class_trie}{Trie}} Class constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_trie_a8eaf81448d8b64ab7cea6d1590164e7b}\label{class_trie_a8eaf81448d8b64ab7cea6d1590164e7b}} 
+\index{Trie@{Trie}!autosuggest@{autosuggest}}
+\index{autosuggest@{autosuggest}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{autosuggest()}{autosuggest()}}
+{\footnotesize\ttfamily void Trie\+::autosuggest (\begin{DoxyParamCaption}\item[{string}]{word,  }\item[{\mbox{\hyperlink{class_l_f_u_cache}{L\+F\+U\+Cache}} \&}]{cache }\end{DoxyParamCaption})}
+
+Prints the suggestions to the inputs of user in the entry field. ~\newline
+Gets all valid words which have prefix as given word from \mbox{\hyperlink{class_trie_a76b192838876fd9bff8be25b7677de85}{get\+\_\+all\+\_\+words()}} method. ~\newline
+Displays the suggestions according to their usage (frequencies), which are obtained from the L\+FU cache. ~\newline
+Then lets the user select their desired suggestion and updates the cache.\mbox{\Hypertarget{class_trie_a76b192838876fd9bff8be25b7677de85}\label{class_trie_a76b192838876fd9bff8be25b7677de85}} 
+\index{Trie@{Trie}!get\_all\_words@{get\_all\_words}}
+\index{get\_all\_words@{get\_all\_words}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{get\_all\_words()}{get\_all\_words()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Trie\+::get\+\_\+all\+\_\+words (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
+
+Returns a vector all words with given word as prefix. ~\newline
+These are the suggestions the user expects for their input in the entry field. ~\newline
+Breadth First Search (B\+FS) is performed from the end of the prefix (given word) to find all valid words by checking for is\+Word.\mbox{\Hypertarget{class_trie_a2e5d02c2b33172ae491652f44b14a7bc}\label{class_trie_a2e5d02c2b33172ae491652f44b14a7bc}} 
+\index{Trie@{Trie}!insert@{insert}}
+\index{insert@{insert}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Trie\+::insert (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
+
+Inserts given word in the \mbox{\hyperlink{class_trie}{Trie}}, then marks is\+Word as True.\mbox{\Hypertarget{class_trie_a5e20f592f090de30bda3b4bb8966e534}\label{class_trie_a5e20f592f090de30bda3b4bb8966e534}} 
+\index{Trie@{Trie}!search@{search}}
+\index{search@{search}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily bool Trie\+::search (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
+
+Searches the \mbox{\hyperlink{class_trie}{Trie}} for given word, if it exists.
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_trie_a052cecab75ca88758778d340ed002d66}\label{class_trie_a052cecab75ca88758778d340ed002d66}} 
+\index{Trie@{Trie}!root@{root}}
+\index{root@{root}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_trie_node}{Trie\+Node}}$\ast$ Trie\+::root\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Root node. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{auto__complete_8cpp}{auto\+\_\+complete.\+cpp}}\end{DoxyCompactItemize}
