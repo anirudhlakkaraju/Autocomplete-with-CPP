@@ -45,7 +45,7 @@ class LFUCache
         int get(string word);   
         
         void put(string word);
-
+ 
         void print();
 };
 
