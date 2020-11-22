@@ -149,7 +149,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets frequency of word, if it exists in the cache.</p>
+<p>Gets frequency of word, if it exists in the cache. <br  />
+Time Complexity - O(1).</p>
 
 </div>
 </div>
@@ -167,7 +168,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints contents of the cache with corresponding frequency of usage.</p>
+<p>Prints contents of the cache with corresponding frequency of usage. <br  />
+Time Complexity - O(1).</p>
 
 </div>
 </div>
@@ -190,8 +192,10 @@ Private Attributes</h2></td></tr>
 If word already exists in the cache then simply increments its frequency. <br  />
 If word does not exist in the cache, then two cases arise -</p><ol type="1">
 <li>The max capacity is reached - Ejects word(s) with minFreq to make space and then inserts given word.</li>
-<li>The max capacity is not reached - Simply inserts the given word which now has minFreq.</li>
+<li>The max capacity is not reached - Simply inserts the given word which now has minFreq. <br  />
+</li>
 </ol>
+<p>Time Complexity - O(1).</p>
 
 </div>
 </div>

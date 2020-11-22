@@ -54,13 +54,15 @@ L\+FU Class constructor.
 \doxysubsubsection{\texorpdfstring{get()}{get()}}
 {\footnotesize\ttfamily int L\+F\+U\+Cache\+::get (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
 
-Gets frequency of word, if it exists in the cache.\mbox{\Hypertarget{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}\label{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}} 
+Gets frequency of word, if it exists in the cache. ~\newline
+Time Complexity -\/ O(1).\mbox{\Hypertarget{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}\label{class_l_f_u_cache_a19cb7e79dc5ac7760053b1780cdbfa55}} 
 \index{LFUCache@{LFUCache}!print@{print}}
 \index{print@{print}!LFUCache@{LFUCache}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
 {\footnotesize\ttfamily void L\+F\+U\+Cache\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Prints contents of the cache with corresponding frequency of usage.\mbox{\Hypertarget{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}\label{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}} 
+Prints contents of the cache with corresponding frequency of usage. ~\newline
+Time Complexity -\/ O(1).\mbox{\Hypertarget{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}\label{class_l_f_u_cache_a5c7cac72dae9a2077540b3c6384e764e}} 
 \index{LFUCache@{LFUCache}!put@{put}}
 \index{put@{put}!LFUCache@{LFUCache}}
 \doxysubsubsection{\texorpdfstring{put()}{put()}}
@@ -71,8 +73,11 @@ If word already exists in the cache then simply increments its frequency. ~\newl
 If word does not exist in the cache, then two cases arise -\/
 \begin{DoxyEnumerate}
 \item The max capacity is reached -\/ Ejects word(s) with min\+Freq to make space and then inserts given word.
-\item The max capacity is not reached -\/ Simply inserts the given word which now has min\+Freq.
+\item The max capacity is not reached -\/ Simply inserts the given word which now has min\+Freq. ~\newline
+
 \end{DoxyEnumerate}
+
+Time Complexity -\/ O(1).
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_l_f_u_cache_a7ac72f55c0498105d0a7d82641d95f35}\label{class_l_f_u_cache_a7ac72f55c0498105d0a7d82641d95f35}} 

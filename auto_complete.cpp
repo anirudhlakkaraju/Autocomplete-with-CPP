@@ -52,7 +52,8 @@ class LFUCache
 
 int LFUCache::get(string word) 
 {
-    /// Gets frequency of word, if it exists in the cache.
+    /// Gets frequency of word, if it exists in the cache. @n
+    /// Time Complexity - O(1).
 
     if(word_freq.find(word) == word_freq.end())    
         return 0;
@@ -67,7 +68,10 @@ void LFUCache::put(string word)
     /// If word already exists in the cache then simply increments its frequency. @n
     /// If word does not exist in the cache, then two cases arise -
     /// 1. The max capacity is reached - Ejects word(s) with minFreq to make space and then inserts given word.
-    /// 2. The max capacity is not reached - Simply inserts the given word which now has minFreq.
+    /// 2. The max capacity is not reached - Simply inserts the given word which now has minFreq. @n
+    
+    /// Time Complexity - O(1).
+
     if(capacity <= 0)  return;
 
     if(get(word) != 0)
@@ -101,8 +105,8 @@ void LFUCache::put(string word)
 
 void LFUCache::print()
 {    
-    /// Prints contents of the cache with corresponding frequency of usage.
-
+    /// Prints contents of the cache with corresponding frequency of usage. @n
+    /// Time Complexity - O(1).
     unordered_map<string, int>::iterator it;
 
     if(word_freq.size() == 0){
@@ -143,7 +147,8 @@ class Trie
 
 void Trie::insert(string word)
 {
-    /// Inserts given word in the Trie, then marks isWord as True.
+    /// Inserts given word in the Trie, then marks isWord as True. @n
+    /// Time Complexity - O(M), where M is length of given word.
     
     TrieNode* temp = root;
     
@@ -163,7 +168,8 @@ void Trie::insert(string word)
 
 bool Trie::search(string word)
 {   
-    /// Searches the Trie for given word, if it exists.
+    /// Searches the Trie for given word, if it exists. @n
+    /// Time Complexity - O(M), where M is length of given word.
 
     if(root == NULL)    return false;
 
