@@ -1,12 +1,13 @@
 # Autocomplete-with-CPP
 
-Our project is to implement Auto Suggest using trie data structure. Our application targets coding text editiors. Many text editors, especially web browser editors, like Jdoodle do not have fast autocomplete. 
+Our project is to implement Auto Complete using trie data structure. Our application targets coding text editiors. Many text editors, especially web browser editors, like Jdoodle do not have fast autocomplete. 
 
 Trie is a tree data structure which is used to store a key (a string). The main advantage of trie is efficient searching done in O(length_of_key) which is very fast compared to naive search where we check every word in the dictionary for a match. Using a preloaded dictionary, the algorithm can suggest words and improve the suggestions by storing words that were frequently selected by user in an LFU cache. The code works for all words, but we're loading C++ syntax words in our test cases. 
 
 
 #### Sample Test Cases
-Please follow procedure as explained. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva.
+Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva.
+
 
 The code performs the following operations. The index will select the corresponding operation. 
 
