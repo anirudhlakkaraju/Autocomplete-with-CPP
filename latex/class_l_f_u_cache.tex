@@ -1,10 +1,5 @@
 \hypertarget{class_l_f_u_cache}{}\doxysection{L\+F\+U\+Cache Class Reference}
 \label{class_l_f_u_cache}\index{LFUCache@{LFUCache}}
-
-
-Least Frequently Used (L\+FU) Cache class to store most frequently selected words.  
-
-
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,7 +27,10 @@ unordered\+\_\+map$<$ string, list$<$ string $>$\+::iterator $>$ \mbox{\hyperlin
 
 
 \doxysubsection{Detailed Description}
-Least Frequently Used (L\+FU) Cache class to store most frequently selected words. 
+Least Frequently Used (L\+FU) Cache class to store most frequently selected words. ~\newline
+L\+FU cache has a limited capacity. Once the max capacity is reached, the word that is least frequently used is ejected. ~\newline
+If two words share the same frequency, the word that was most frequently used is ranked higher. ~\newline
+ This is the major reason why L\+FU cache is better than a simple frequency table. It resolves clashes in O(1) time. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_l_f_u_cache_a062fa7aee552fcc3366c74117a4b634c}\label{class_l_f_u_cache_a062fa7aee552fcc3366c74117a4b634c}} 
