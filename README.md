@@ -30,7 +30,7 @@ max_element
 make_tuple  
 malloc  
 
-#### Output
+#### Output (After typing in Entry Field using Operation 2)
 2  
 ma  
 Select "make_pair" using the index. 
@@ -49,14 +49,14 @@ The cache can be checked anytime for frequency of usage (Operation 3).
 
 #### INPUT
 1  
-4   
+5  
 int  
 int8_t  
 int16_t  
 int32_t  
 int64_t
 
-#### Output
+#### Output (After typing in Entry Field using Operation 2)
 2  
 int  
 Select "int16_t" using the index. 
