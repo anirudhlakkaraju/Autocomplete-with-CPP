@@ -7,7 +7,7 @@ Our project is to implement Auto Complete using trie data structure. Our applica
 \item Akash Singh Chauhan (2017B4\+A\+A1484H)
 \item Vishesh Jain (2017B5\+A\+A1158H)
 \item Kirti Vatshal Mishra (2017B4\+A\+A0995H)
-\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsubsection{Sample Test Cases}\label{md__r_e_a_d_m_e_autotoc_md2}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{Sample Test Cases}\label{md__r_e_a_d_m_e_autotoc_md2}
 Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva. ~\newline
  The code performs the following operations. The index will select the corresponding operation.
 
@@ -20,7 +20,8 @@ Please follow procedure as explained and notice the outputs. There is no concret
 \item Check the L\+FU cache -\/ Allows user to check the cache contents. ~\newline
 
 \item Exit -\/Terminate loop.
-\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsubsection{Input}\label{md__r_e_a_d_m_e_autotoc_md3}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{Test Case 1}\label{md__r_e_a_d_m_e_autotoc_md3}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{Input}\label{md__r_e_a_d_m_e_autotoc_md4}
 1 ~\newline
  5 ~\newline
  make\+\_\+pair ~\newline
@@ -28,38 +29,92 @@ Please follow procedure as explained and notice the outputs. There is no concret
  max\+\_\+element ~\newline
  make\+\_\+tuple ~\newline
  malloc ~\newline
-\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md4}
+ 2 ~\newline
+ ma \hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item max\+\_\+element
+\item map
+\item malloc
+\item make\+\_\+tuple
+\item make\+\_\+pair
+\end{DoxyEnumerate}
+
+Select \char`\"{}make\+\_\+pair\char`\"{} using the index 5.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsubsection{Input}\label{md__r_e_a_d_m_e_autotoc_md6}
 2 ~\newline
  ma ~\newline
- Select \char`\"{}make\+\_\+pair\char`\"{} using the index.
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md7}
 
+\begin{DoxyEnumerate}
+\item make\+\_\+pair
+\item max\+\_\+element
+\item map
+\item malloc
+\item make\+\_\+tuple
+\end{DoxyEnumerate}
+
+Notice that the previously selected suggestion is on top now. Select \char`\"{}make\+\_\+tuple\char`\"{} using the index 5.\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsubsection{Input}\label{md__r_e_a_d_m_e_autotoc_md8}
 2 ~\newline
  ma ~\newline
- Notice that the previously selected suggestion is on top now. Select \char`\"{}make\+\_\+tuple\char`\"{} using the index.
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md9}
 
-2 ~\newline
- ma ~\newline
- Notice that \char`\"{}make\+\_\+tuple\char`\"{} is ranked above \char`\"{}make\+\_\+pair\char`\"{}, even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.
+\begin{DoxyEnumerate}
+\item make\+\_\+tuple
+\item make\+\_\+pair
+\item max\+\_\+element
+\item map
+\item malloc
+\end{DoxyEnumerate}
 
-The cache can be checked anytime for frequency of usage (Operation 3).\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{I\+N\+P\+UT}\label{md__r_e_a_d_m_e_autotoc_md5}
+Notice that \char`\"{}make\+\_\+tuple\char`\"{} is ranked above \char`\"{}make\+\_\+pair\char`\"{}, even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.
+
+The cache can be checked anytime for frequency of usage (Operation 3).\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{Test Case 2}\label{md__r_e_a_d_m_e_autotoc_md10}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysubsubsection{I\+N\+P\+UT}\label{md__r_e_a_d_m_e_autotoc_md11}
 1 ~\newline
- 4 ~\newline
+ 5 ~\newline
  int ~\newline
  int8\+\_\+t ~\newline
  int16\+\_\+t ~\newline
  int32\+\_\+t ~\newline
- int64\+\_\+t\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md6}
+ int64\+\_\+t 2 ~\newline
+ int ~\newline
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md12}
+
+\begin{DoxyEnumerate}
+\item int8\+\_\+t
+\item int64\+\_\+t
+\item int32\+\_\+t
+\item int16\+\_\+t
+\item int
+\end{DoxyEnumerate}
+
+Select \char`\"{}int16\+\_\+t\char`\"{} using the index 4.\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysubsubsection{Input}\label{md__r_e_a_d_m_e_autotoc_md13}
 2 ~\newline
  int ~\newline
- Select \char`\"{}int16\+\_\+t\char`\"{} using the index.
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md14}
 
+\begin{DoxyEnumerate}
+\item int16\+\_\+t
+\item int8\+\_\+t
+\item int64\+\_\+t
+\item int32\+\_\+t
+\item int
+\end{DoxyEnumerate}
+
+Notice that the previously selected suggestion is on top now. Select \char`\"{}int64\+\_\+t\char`\"{} using the index 3.\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsubsection{Input}\label{md__r_e_a_d_m_e_autotoc_md15}
 2 ~\newline
  int ~\newline
- Notice that the previously selected suggestion is on top now. Select \char`\"{}int64\+\_\+t\char`\"{} using the index.
+\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md16}
 
-2 ~\newline
- int ~\newline
- Notice that \char`\"{}int64\+\_\+t\char`\"{} is ranked above \char`\"{}int8\+\_\+t\char`\"{}, even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.
+\begin{DoxyEnumerate}
+\item int64\+\_\+t
+\item int16\+\_\+t
+\item int8\+\_\+t
+\item int32\+\_\+t
+\item int
+\end{DoxyEnumerate}
 
-Again the cache can be checked anyime for frequency of usage(\+Operation 3).\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsubsection{Note -\/}\label{md__r_e_a_d_m_e_autotoc_md7}
+Notice that \char`\"{}int64\+\_\+t\char`\"{} is ranked above \char`\"{}int8\+\_\+t\char`\"{}, even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.
+
+Again the cache can be checked anyime for frequency of usage(\+Operation 3).\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsubsection{Note -\/}\label{md__r_e_a_d_m_e_autotoc_md17}
 Load the dictionary only O\+N\+CE for a test case. 

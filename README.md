@@ -12,7 +12,7 @@ Trie is a tree data structure which is used to store a key (a string). The main 
 4. Kirti Vatshal Mishra (2017B4AA0995H)
 
 
-#### Sample Test Cases
+### Sample Test Cases
 Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva.  
 The code performs the following operations. The index will select the corresponding operation. 
 
@@ -21,6 +21,7 @@ The code performs the following operations. The index will select the correspond
 3. Check the LFU cache - Allows user to check the cache contents.  
 4. Exit -Terminate loop.
 
+### Test Case 1
 #### Input
 1  
 5  
@@ -29,24 +30,50 @@ map
 max_element  
 make_tuple  
 malloc  
+2  
+ma
+#### Output 
+1. max_element
+2. map
+3. malloc
+4. make_tuple
+5. make_pair 
 
-#### Output (After typing in Entry Field using Operation 2)
+
+Select "make_pair" using the index 5. 
+
+#### Input
 2  
 ma  
-Select "make_pair" using the index. 
 
+#### Output
+1. make_pair
+2. max_element
+3. map
+4. malloc
+5. make_tuple
+
+
+Notice that the previously selected suggestion is on top now. Select "make_tuple" using the index 5. 
+
+
+#### Input
 2  
 ma  
-Notice that the previously selected suggestion is on top now. Select "make_tuple" using the index. 
 
-2  
-ma  
-Notice that "make_tuple" is ranked above "make_pair", even though the latter is lexicographically smaller. 
-This is because if multiple words share the max frequency, the cache return the most recently used word.
+#### Output
+1. make_tuple
+2. make_pair
+3. max_element
+4. map
+5. malloc
+
+Notice that "make_tuple" is ranked above "make_pair", even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.
 
 The cache can be checked anytime for frequency of usage (Operation 3).
 
 
+### Test Case 2
 #### INPUT
 1  
 5  
@@ -55,18 +82,42 @@ int8_t
 int16_t  
 int32_t  
 int64_t
-
-#### Output (After typing in Entry Field using Operation 2)
 2  
 int  
-Select "int16_t" using the index. 
 
+#### Output
+1. int8_t
+2. int64_t
+3. int32_t
+4. int16_t
+5. int
+
+Select "int16_t" using the index 4. 
+
+#### Input
 2  
 int  
-Notice that the previously selected suggestion is on top now. Select "int64_t" using the index. 
 
+#### Output
+1. int16_t
+2. int8_t
+3. int64_t
+4. int32_t
+5. int
+
+Notice that the previously selected suggestion is on top now. Select "int64_t" using the index 3. 
+
+#### Input
 2  
 int  
+
+#### Output
+1. int64_t
+2. int16_t
+3. int8_t
+4. int32_t
+5. int
+
 Notice that "int64_t" is ranked above "int8_t", even though the latter is lexicographically smaller. 
 This is because if multiple words share the max frequency, the cache return the most recently used word.
 

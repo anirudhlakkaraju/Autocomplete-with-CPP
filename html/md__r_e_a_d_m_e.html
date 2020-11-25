@@ -105,8 +105,8 @@ Members</h2>
 <li>Vishesh Jain (2017B5AA1158H)</li>
 <li>Kirti Vatshal Mishra (2017B4AA0995H)</li>
 </ol>
-<h3><a class="anchor" id="autotoc_md2"></a>
-Sample Test Cases</h3>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Sample Test Cases</h2>
 <p>Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva. <br  />
  The code performs the following operations. The index will select the corresponding operation.</p>
 <ol type="1">
@@ -118,7 +118,9 @@ Sample Test Cases</h3>
 </li>
 <li>Exit -Terminate loop.</li>
 </ol>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Test Case 1</h2>
+<h3><a class="anchor" id="autotoc_md4"></a>
 Input</h3>
 <p>1 <br  />
  5 <br  />
@@ -127,41 +129,104 @@ Input</h3>
  max_element <br  />
  make_tuple <br  />
  malloc <br  />
-</p>
-<h3><a class="anchor" id="autotoc_md4"></a>
-Output</h3>
-<p>2 <br  />
- ma <br  />
- Select "make_pair" using the index.</p>
-<p>2 <br  />
- ma <br  />
- Notice that the previously selected suggestion is on top now. Select "make_tuple" using the index.</p>
-<p>2 <br  />
- ma <br  />
- Notice that "make_tuple" is ranked above "make_pair", even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.</p>
-<p>The cache can be checked anytime for frequency of usage (Operation 3).</p>
+ 2 <br  />
+ ma </p>
 <h3><a class="anchor" id="autotoc_md5"></a>
+Output</h3>
+<ol type="1">
+<li>max_element</li>
+<li>map</li>
+<li>malloc</li>
+<li>make_tuple</li>
+<li>make_pair</li>
+</ol>
+<p>Select "make_pair" using the index 5.</p>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Input</h3>
+<p>2 <br  />
+ ma <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Output</h3>
+<ol type="1">
+<li>make_pair</li>
+<li>max_element</li>
+<li>map</li>
+<li>malloc</li>
+<li>make_tuple</li>
+</ol>
+<p>Notice that the previously selected suggestion is on top now. Select "make_tuple" using the index 5.</p>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Input</h3>
+<p>2 <br  />
+ ma <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md9"></a>
+Output</h3>
+<ol type="1">
+<li>make_tuple</li>
+<li>make_pair</li>
+<li>max_element</li>
+<li>map</li>
+<li>malloc</li>
+</ol>
+<p>Notice that "make_tuple" is ranked above "make_pair", even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.</p>
+<p>The cache can be checked anytime for frequency of usage (Operation 3).</p>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Test Case 2</h2>
+<h3><a class="anchor" id="autotoc_md11"></a>
 INPUT</h3>
 <p>1 <br  />
- 4 <br  />
+ 5 <br  />
  int <br  />
  int8_t <br  />
  int16_t <br  />
  int32_t <br  />
- int64_t</p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+ int64_t 2 <br  />
+ int <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md12"></a>
 Output</h3>
+<ol type="1">
+<li>int8_t</li>
+<li>int64_t</li>
+<li>int32_t</li>
+<li>int16_t</li>
+<li>int</li>
+</ol>
+<p>Select "int16_t" using the index 4.</p>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Input</h3>
 <p>2 <br  />
  int <br  />
- Select "int16_t" using the index.</p>
+</p>
+<h3><a class="anchor" id="autotoc_md14"></a>
+Output</h3>
+<ol type="1">
+<li>int16_t</li>
+<li>int8_t</li>
+<li>int64_t</li>
+<li>int32_t</li>
+<li>int</li>
+</ol>
+<p>Notice that the previously selected suggestion is on top now. Select "int64_t" using the index 3.</p>
+<h3><a class="anchor" id="autotoc_md15"></a>
+Input</h3>
 <p>2 <br  />
  int <br  />
- Notice that the previously selected suggestion is on top now. Select "int64_t" using the index.</p>
-<p>2 <br  />
- int <br  />
- Notice that "int64_t" is ranked above "int8_t", even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.</p>
+</p>
+<h3><a class="anchor" id="autotoc_md16"></a>
+Output</h3>
+<ol type="1">
+<li>int64_t</li>
+<li>int16_t</li>
+<li>int8_t</li>
+<li>int32_t</li>
+<li>int</li>
+</ol>
+<p>Notice that "int64_t" is ranked above "int8_t", even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.</p>
 <p>Again the cache can be checked anyime for frequency of usage(Operation 3).</p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 Note -</h3>
 <p>Load the dictionary only ONCE for a test case. </p>
 </div></div><!-- contents -->
