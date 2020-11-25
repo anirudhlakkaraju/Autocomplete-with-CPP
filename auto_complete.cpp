@@ -2,15 +2,15 @@
 using namespace std;
 
 const int CHARACTERS = 95;  ///< ASCII range of characters.
+const int CAPACITY = 100;   ///< Max capacity of the LFU cache.
 
-
-/// Creating a TRIE NODE structure.
+/// Creating a TrieNode structure, used to construct Trie data structure.
 struct TrieNode
 {
     bool isWord;    ///< Checks if word is valid word
-    TrieNode *next[CHARACTERS]; ///< Pointer to next TrieNode
+    TrieNode *next[CHARACTERS]; ///< Array of pointers to next TrieNodes.
     
-    /// Trie Node struct constructor.
+    /// TrieNode struct constructor.
     TrieNode()
     {
         isWord = false;
@@ -27,8 +27,8 @@ class LFUCache
 {
     private:
 
-        int capacity;   ///< Max capacity of cache
-        int minFreq;    ///< Current smallest word frequency in cache
+        int capacity;   ///< Max capacity of the LFU cache
+        int minFreq;    ///< Current smallest word frequency in the cache
 
         unordered_map<string, int> word_freq;   ///< Word -> Frequency of usage
         unordered_map<int, list<string>> freq_wordList; ///< Frequency -> DLL containing words with that frequency of usage
@@ -36,10 +36,12 @@ class LFUCache
 
     public:
         
-        /// LFU Class constructor.
         LFUCache()
         {
-            capacity = 1000;
+            /// LFU cache Class constructor.
+            /// Default maximum capacity is \link CAPACITY \endlink.
+
+            capacity = CAPACITY;
         }
         
         int get(string word);   
@@ -53,6 +55,8 @@ class LFUCache
 int LFUCache::get(string word) 
 {
     /// Gets frequency of word, if it exists in the cache. @n
+    /// @param word whose usage is to be checked. @n
+
     /// Time Complexity - O(1).
 
     if(word_freq.find(word) == word_freq.end())    
@@ -67,9 +71,11 @@ void LFUCache::put(string word)
     /// Inserts word into the cache and updates its frequency. @n
     /// If word already exists in the cache then simply increments its frequency. @n
     /// If word does not exist in the cache, then two cases arise -
-    /// 1. The max capacity is reached - Ejects word(s) with minFreq to make space and then inserts given word.
-    /// 2. The max capacity is not reached - Simply inserts the given word which now has minFreq. @n
+    /// 1. The max capacity is reached - Ejects word(s) with \link minFreq \endlink to make space and then inserts given word.
+    /// 2. The max capacity is not reached - Simply inserts the given word which now has \link minFreq \endlink. @n
     
+    /// @param word to be inserted in the cache. @n
+
     /// Time Complexity - O(1).
 
     if(capacity <= 0)  return;
@@ -105,22 +111,26 @@ void LFUCache::put(string word)
 
 void LFUCache::print()
 {    
-    /// Prints contents of the cache with corresponding frequency of usage. @n
-    /// Time Complexity - O(1).
+    /// Prints contents of the LFU cache with corresponding frequency of usage. @n
+    /// Time Complexity - O(N), where N is the size of the cache.
+    
     unordered_map<string, int>::iterator it;
 
     if(word_freq.size() == 0){
-        cout << "Empty cache\n" << endl;
+        cout << "The LFU cache is EMPTY\n" << endl;
         return;
     }
 
+    cout << "\nContents of the LFU cache along with corresponding usage :" << endl;
+
     for(it=word_freq.begin(); it!=word_freq.end(); it++){
-        cout << it->first << " : " << it->second << endl;
+        cout << it->first << " -> " << it->second << endl;
     }
+    cout << endl;
 }
 
 
-/// The class for TRIE data structure, whose objects contain loaded dictionary.
+/// The class for Trie data structure, whose objects contain loaded dictionary.
 class Trie 
 {
     private:
@@ -147,7 +157,10 @@ class Trie
 
 void Trie::insert(string word)
 {
-    /// Inserts given word in the Trie, then marks isWord as True. @n
+    /// Inserts given word in the Trie, then marks \link isWord \endlink as True. @n
+
+    /// @param word to be added to dictionary.
+
     /// Time Complexity - O(M), where M is length of given word.
     
     TrieNode* temp = root;
@@ -169,6 +182,10 @@ void Trie::insert(string word)
 bool Trie::search(string word)
 {   
     /// Searches the Trie for given word, if it exists. @n
+
+    /// @param word to be searched in dictionary. @n
+    /// @return True is \link isWord \endlink. @n
+
     /// Time Complexity - O(M), where M is length of given word.
 
     if(root == NULL)    return false;
@@ -193,7 +210,10 @@ vector<string> Trie::get_all_words(string word)
     /// Returns a vector all words with given word as prefix. @n
     /// These are the suggestions the user expects for their input in the entry field. @n
     /// Breadth First Search (BFS) is performed from the end of the prefix (given word) to find all valid 
-    /// words by checking for isWord.
+    /// words by checking for \link isWord \link. @n 
+
+    /// @param word which is a prefix to other words in dictionary.
+    /// @returns Vector of all words for which given word is prefix.
 
     if(root == NULL)    return {};
 
@@ -248,6 +268,9 @@ void Trie::autosuggest(string word, LFUCache &cache)
     /// Displays the suggestions according to their usage (frequencies), which are obtained from the LFU cache. @n
     /// Then lets the user select their desired suggestion and updates the cache.
     
+    /// @param word which is inputs in entry field.
+    /// @param cache which is the LFU cache to store and optimise suggestions. 
+
     if(word.size() == 0)    return;
 
    
@@ -255,11 +278,11 @@ void Trie::autosuggest(string word, LFUCache &cache)
 
     if(suggestions.size() == 0)
     {
-        cout << "There are no suggestions." << endl;
+        cout << "\nThere are NO suggestions.\n" << endl;
         return;
     }
 
-    cout << "There are " << suggestions.size() << " suggestions for the prefix \"" << word << "\" : " << endl;
+    cout << "\nThere are " << suggestions.size() << " suggestions for the prefix \"" << word << "\" : " << endl;
 
     int i;
     vector<pair<int, string>> rank;
@@ -273,12 +296,12 @@ void Trie::autosuggest(string word, LFUCache &cache)
 
     for(int i=0; i<suggestions.size(); i++)
     {
-        cout << i+1 << ". " << rank[i].second << " " << rank[i].first << endl;
+        cout << i+1 << ". " << rank[i].second << endl;
     }
 
     int sel = -1;
     do {
-        cout << "Select suggestion (" << 1 << "-" << i << ") : ";
+        cout << "\nSelect suggestion (" << 1 << "-" << i << ") : ";
         if (cin >> sel && (sel >= 1 && sel <= i)) break;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -297,7 +320,9 @@ void Trie::autosuggest(string word, LFUCache &cache)
 
 void createDict(Trie*  trie){
     
-    /// Load the dictionary into Trie data structure using insert() method.
+    /// Load the dictionary into Trie data structure using insert() method. @n
+
+    /// @param trie data structure to store loaded dictionary.
 
     int size;
     cout << "Enter dictionary size (100 for given dictionary) : ";
@@ -321,7 +346,7 @@ void printOperations(){
     cout    << "Operations - \n" 
             << "1. Load Dictionary \n"
             << "2. Entry Field \n"
-            << "3. Check Cache \n"
+            << "3. Check the LFU Cache \n"
             << "4. Exit \n";
     
     return;
@@ -331,11 +356,11 @@ void printOperations(){
 int main() 
 {
     /// The main method. @n
-    /// Trie object is made to store and search the dictionary. LFU cache object is made to optimise suggestions. @n
+    /// Trie object is made to store and search the dictionary. The LFU cache object is made to optimise suggestions. @n
     /// Choices of following operations are given to user - 
     /// 1. Load dictionary -  Allows user to load desired dictionary into Trie object.
     /// 2. Entry Field - To enter prefixes.
-    /// 3. Check cache - Allows user to check cache contents.
+    /// 3. Check the LFU cache - Allows user to check the cache contents.
     /// 4. Exit - Terminate loop.
 
     Trie *trie = new Trie();
@@ -353,7 +378,8 @@ int main()
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         while(true);
-
+        cout << endl; 
+        
         switch (operation)
         {
         case 1:

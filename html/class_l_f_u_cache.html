@@ -9,9 +9,18 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +33,21 @@
    <div id="projectname">Auto Complete in C++
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -35,16 +59,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
+$(document).ready(function(){initNavTree('class_l_f_u_cache.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,7 +90,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -76,7 +106,6 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a062fa7aee552fcc3366c74117a4b634c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_f_u_cache.html#a062fa7aee552fcc3366c74117a4b634c">LFUCache</a> ()</td></tr>
-<tr class="memdesc:a062fa7aee552fcc3366c74117a4b634c"><td class="mdescLeft">&#160;</td><td class="mdescRight">LFU Class constructor.  <a href="class_l_f_u_cache.html#a062fa7aee552fcc3366c74117a4b634c">More...</a><br /></td></tr>
 <tr class="separator:a062fa7aee552fcc3366c74117a4b634c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47a945470bf66c8e4c0139ad7a76b514"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_f_u_cache.html#a47a945470bf66c8e4c0139ad7a76b514">get</a> (string word)</td></tr>
 <tr class="separator:a47a945470bf66c8e4c0139ad7a76b514"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -88,10 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7ac72f55c0498105d0a7d82641d95f35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_f_u_cache.html#a7ac72f55c0498105d0a7d82641d95f35">capacity</a></td></tr>
-<tr class="memdesc:a7ac72f55c0498105d0a7d82641d95f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max capacity of cache.  <a href="class_l_f_u_cache.html#a7ac72f55c0498105d0a7d82641d95f35">More...</a><br /></td></tr>
+<tr class="memdesc:a7ac72f55c0498105d0a7d82641d95f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max capacity of the LFU cache.  <a href="class_l_f_u_cache.html#a7ac72f55c0498105d0a7d82641d95f35">More...</a><br /></td></tr>
 <tr class="separator:a7ac72f55c0498105d0a7d82641d95f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5339bbd91d9149bb0abb5a6a283eacc1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_f_u_cache.html#a5339bbd91d9149bb0abb5a6a283eacc1">minFreq</a></td></tr>
-<tr class="memdesc:a5339bbd91d9149bb0abb5a6a283eacc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current smallest word frequency in cache.  <a href="class_l_f_u_cache.html#a5339bbd91d9149bb0abb5a6a283eacc1">More...</a><br /></td></tr>
+<tr class="memdesc:a5339bbd91d9149bb0abb5a6a283eacc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current smallest word frequency in the cache.  <a href="class_l_f_u_cache.html#a5339bbd91d9149bb0abb5a6a283eacc1">More...</a><br /></td></tr>
 <tr class="separator:a5339bbd91d9149bb0abb5a6a283eacc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4b8ba007e7c11d0d3ab62c9f6224a74"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_l_f_u_cache.html#ab4b8ba007e7c11d0d3ab62c9f6224a74">word_freq</a></td></tr>
 <tr class="memdesc:ab4b8ba007e7c11d0d3ab62c9f6224a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Word -&gt; Frequency of usage.  <a href="class_l_f_u_cache.html#ab4b8ba007e7c11d0d3ab62c9f6224a74">More...</a><br /></td></tr>
@@ -128,8 +157,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>LFU Class constructor. </p>
+<p>LFU cache Class constructor. Default maximum capacity is <a class="el" href="auto__complete_8cpp.html#a8810d62c0ad9e41f2770f7636de1f59f">CAPACITY</a>.</p>
 
 </div>
 </div>
@@ -150,7 +178,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Gets frequency of word, if it exists in the cache. <br  />
-Time Complexity - O(1).</p>
+</p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">word</td><td>whose usage is to be checked. <br  />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity - O(1).</p>
 
 </div>
 </div>
@@ -168,8 +203,8 @@ Time Complexity - O(1).</p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints contents of the cache with corresponding frequency of usage. <br  />
-Time Complexity - O(1).</p>
+<p>Prints contents of the LFU cache with corresponding frequency of usage. <br  />
+Time Complexity - O(N), where N is the size of the cache.</p>
 
 </div>
 </div>
@@ -191,10 +226,17 @@ Time Complexity - O(1).</p>
 <p>Inserts word into the cache and updates its frequency. <br  />
 If word already exists in the cache then simply increments its frequency. <br  />
 If word does not exist in the cache, then two cases arise -</p><ol type="1">
-<li>The max capacity is reached - Ejects word(s) with minFreq to make space and then inserts given word.</li>
-<li>The max capacity is not reached - Simply inserts the given word which now has minFreq. <br  />
+<li>The max capacity is reached - Ejects word(s) with <a class="el" href="class_l_f_u_cache.html#a5339bbd91d9149bb0abb5a6a283eacc1">minFreq</a> to make space and then inserts given word.</li>
+<li>The max capacity is not reached - Simply inserts the given word which now has <a class="el" href="class_l_f_u_cache.html#a5339bbd91d9149bb0abb5a6a283eacc1">minFreq</a>. <br  />
 </li>
 </ol>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">word</td><td>to be inserted in the cache. <br  />
+</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Time Complexity - O(1).</p>
 
 </div>
@@ -220,7 +262,7 @@ If word does not exist in the cache, then two cases arise -</p><ol type="1">
 </table>
 </div><div class="memdoc">
 
-<p>Max capacity of cache. </p>
+<p>Max capacity of the LFU cache. </p>
 
 </div>
 </div>
@@ -268,7 +310,7 @@ If word does not exist in the cache, then two cases arise -</p><ol type="1">
 </table>
 </div><div class="memdoc">
 
-<p>Current smallest word frequency in cache. </p>
+<p>Current smallest word frequency in the cache. </p>
 
 </div>
 </div>
@@ -324,9 +366,13 @@ If word does not exist in the cache, then two cases arise -</p><ol type="1">
 <li><a class="el" href="auto__complete_8cpp.html">auto_complete.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_l_f_u_cache.html">LFUCache</a></li>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

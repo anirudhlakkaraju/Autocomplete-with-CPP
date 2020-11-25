@@ -5,11 +5,11 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_trie_node}{Trie\+Node}}
-\begin{DoxyCompactList}\small\item\em Creating a T\+R\+IE N\+O\+DE structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creating a \mbox{\hyperlink{struct_trie_node}{Trie\+Node}} structure, used to construct \mbox{\hyperlink{class_trie}{Trie}} data structure. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_l_f_u_cache}{L\+F\+U\+Cache}}
 \begin{DoxyCompactList}\small\item\em Least Frequently Used (L\+FU) Cache class to store most frequently selected words. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_trie}{Trie}}
-\begin{DoxyCompactList}\small\item\em The class for T\+R\+IE data structure, whose objects contain loaded dictionary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The class for \mbox{\hyperlink{class_trie}{Trie}} data structure, whose objects contain loaded dictionary. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,7 +23,9 @@ int \mbox{\hyperlink{auto__complete_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main
 \begin{DoxyCompactItemize}
 \item 
 const int \mbox{\hyperlink{auto__complete_8cpp_aa9662e3c7e691385a3bd5811a01c17fc}{C\+H\+A\+R\+A\+C\+T\+E\+RS}} = 95
-\begin{DoxyCompactList}\small\item\em A\+S\+C\+II range of characters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A\+S\+C\+II range of characters. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{auto__complete_8cpp_a8810d62c0ad9e41f2770f7636de1f59f}{C\+A\+P\+A\+C\+I\+TY}} = 100
+\begin{DoxyCompactList}\small\item\em Max capacity of the L\+FU cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -33,19 +35,27 @@ const int \mbox{\hyperlink{auto__complete_8cpp_aa9662e3c7e691385a3bd5811a01c17fc
 \doxysubsubsection{\texorpdfstring{createDict()}{createDict()}}
 {\footnotesize\ttfamily void create\+Dict (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trie}{Trie}} $\ast$}]{trie }\end{DoxyParamCaption})}
 
-Load the dictionary into \mbox{\hyperlink{class_trie}{Trie}} data structure using insert() method.\mbox{\Hypertarget{auto__complete_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{auto__complete_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+Load the dictionary into \mbox{\hyperlink{class_trie}{Trie}} data structure using insert() method. ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & data structure to store loaded dictionary.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{auto__complete_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{auto__complete_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
 \index{auto\_complete.cpp@{auto\_complete.cpp}!main@{main}}
 \index{main@{main}!auto\_complete.cpp@{auto\_complete.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 The main method. ~\newline
-\mbox{\hyperlink{class_trie}{Trie}} object is made to store and search the dictionary. L\+FU cache object is made to optimise suggestions. ~\newline
+\mbox{\hyperlink{class_trie}{Trie}} object is made to store and search the dictionary. The L\+FU cache object is made to optimise suggestions. ~\newline
 Choices of following operations are given to user -\/
 \begin{DoxyEnumerate}
 \item Load dictionary -\/ Allows user to load desired dictionary into \mbox{\hyperlink{class_trie}{Trie}} object.
 \item Entry Field -\/ To enter prefixes.
-\item Check cache -\/ Allows user to check cache contents.
+\item Check the L\+FU cache -\/ Allows user to check the cache contents.
 \item Exit -\/ Terminate loop.
 \end{DoxyEnumerate}\mbox{\Hypertarget{auto__complete_8cpp_a493e9f730e133e8dac20dc8df7780a8f}\label{auto__complete_8cpp_a493e9f730e133e8dac20dc8df7780a8f}} 
 \index{auto\_complete.cpp@{auto\_complete.cpp}!printOperations@{printOperations}}
@@ -56,6 +66,16 @@ Choices of following operations are given to user -\/
 Displays choices of operations.
 
 \doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{auto__complete_8cpp_a8810d62c0ad9e41f2770f7636de1f59f}\label{auto__complete_8cpp_a8810d62c0ad9e41f2770f7636de1f59f}} 
+\index{auto\_complete.cpp@{auto\_complete.cpp}!CAPACITY@{CAPACITY}}
+\index{CAPACITY@{CAPACITY}!auto\_complete.cpp@{auto\_complete.cpp}}
+\doxysubsubsection{\texorpdfstring{CAPACITY}{CAPACITY}}
+{\footnotesize\ttfamily const int C\+A\+P\+A\+C\+I\+TY = 100}
+
+
+
+Max capacity of the L\+FU cache. 
+
 \mbox{\Hypertarget{auto__complete_8cpp_aa9662e3c7e691385a3bd5811a01c17fc}\label{auto__complete_8cpp_aa9662e3c7e691385a3bd5811a01c17fc}} 
 \index{auto\_complete.cpp@{auto\_complete.cpp}!CHARACTERS@{CHARACTERS}}
 \index{CHARACTERS@{CHARACTERS}!auto\_complete.cpp@{auto\_complete.cpp}}

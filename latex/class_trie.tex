@@ -2,7 +2,7 @@
 \label{class_trie}\index{Trie@{Trie}}
 
 
-The class for T\+R\+IE data structure, whose objects contain loaded dictionary.  
+The class for \mbox{\hyperlink{class_trie}{Trie}} data structure, whose objects contain loaded dictionary.  
 
 
 \doxysubsection*{Public Member Functions}
@@ -26,7 +26,7 @@ void \mbox{\hyperlink{class_trie_a8eaf81448d8b64ab7cea6d1590164e7b}{autosuggest}
 
 
 \doxysubsection{Detailed Description}
-The class for T\+R\+IE data structure, whose objects contain loaded dictionary. 
+The class for \mbox{\hyperlink{class_trie}{Trie}} data structure, whose objects contain loaded dictionary. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_trie_a6af57e9f25d0d0a2d59eea5a4a802908}\label{class_trie_a6af57e9f25d0d0a2d59eea5a4a802908}} 
@@ -51,7 +51,17 @@ The class for T\+R\+IE data structure, whose objects contain loaded dictionary.
 Prints the suggestions to the inputs of user in the entry field. ~\newline
 Gets all valid words which have prefix as given word from \mbox{\hyperlink{class_trie_a76b192838876fd9bff8be25b7677de85}{get\+\_\+all\+\_\+words()}} method. ~\newline
 Displays the suggestions according to their usage (frequencies), which are obtained from the L\+FU cache. ~\newline
-Then lets the user select their desired suggestion and updates the cache.\mbox{\Hypertarget{class_trie_a76b192838876fd9bff8be25b7677de85}\label{class_trie_a76b192838876fd9bff8be25b7677de85}} 
+Then lets the user select their desired suggestion and updates the cache.
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & which is inputs in entry field. \\
+\hline
+{\em cache} & which is the L\+FU cache to store and optimise suggestions. ~\newline
+\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_trie_a76b192838876fd9bff8be25b7677de85}\label{class_trie_a76b192838876fd9bff8be25b7677de85}} 
 \index{Trie@{Trie}!get\_all\_words@{get\_all\_words}}
 \index{get\_all\_words@{get\_all\_words}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{get\_all\_words()}{get\_all\_words()}}
@@ -59,13 +69,30 @@ Then lets the user select their desired suggestion and updates the cache.\mbox{\
 
 Returns a vector all words with given word as prefix. ~\newline
 These are the suggestions the user expects for their input in the entry field. ~\newline
-Breadth First Search (B\+FS) is performed from the end of the prefix (given word) to find all valid words by checking for is\+Word.\mbox{\Hypertarget{class_trie_a2e5d02c2b33172ae491652f44b14a7bc}\label{class_trie_a2e5d02c2b33172ae491652f44b14a7bc}} 
+Breadth First Search (B\+FS) is performed from the end of the prefix (given word) to find all valid words by checking for \mbox{\hyperlink{}{.  }}
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & which is a prefix to other words in dictionary. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of all words for which given word is prefix.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_trie_a2e5d02c2b33172ae491652f44b14a7bc}\label{class_trie_a2e5d02c2b33172ae491652f44b14a7bc}} 
 \index{Trie@{Trie}!insert@{insert}}
 \index{insert@{insert}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{insert()}{insert()}}
 {\footnotesize\ttfamily void Trie\+::insert (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
 
-Inserts given word in the \mbox{\hyperlink{class_trie}{Trie}}, then marks is\+Word as True. ~\newline
+Inserts given word in the \mbox{\hyperlink{class_trie}{Trie}}, then marks \mbox{\hyperlink{}{is\+Word}} as True. ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & to be added to dictionary.\\
+\hline
+\end{DoxyParams}
 Time Complexity -\/ O(\+M), where M is length of given word.\mbox{\Hypertarget{class_trie_a5e20f592f090de30bda3b4bb8966e534}\label{class_trie_a5e20f592f090de30bda3b4bb8966e534}} 
 \index{Trie@{Trie}!search@{search}}
 \index{search@{search}!Trie@{Trie}}
@@ -73,6 +100,18 @@ Time Complexity -\/ O(\+M), where M is length of given word.\mbox{\Hypertarget{c
 {\footnotesize\ttfamily bool Trie\+::search (\begin{DoxyParamCaption}\item[{string}]{word }\end{DoxyParamCaption})}
 
 Searches the \mbox{\hyperlink{class_trie}{Trie}} for given word, if it exists. ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & to be searched in dictionary. ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True is \mbox{\hyperlink{}{is\+Word}}. ~\newline
+
+\end{DoxyReturn}
 Time Complexity -\/ O(\+M), where M is length of given word.
 
 \doxysubsection{Member Data Documentation}
