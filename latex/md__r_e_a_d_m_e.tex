@@ -1,9 +1,15 @@
 Our project is to implement Auto Complete using trie data structure. Our application targets coding text editiors. Many text editors, especially web browser editors, like Jdoodle do not have fast autocomplete.
 
-\mbox{\hyperlink{class_trie}{Trie}} is a tree data structure which is used to store a key (a string). The main advantage of trie is efficient searching done in O(length\+\_\+of\+\_\+key) which is very fast compared to naive search where we check every word in the dictionary for a match. Using a preloaded dictionary, the algorithm can suggest words and improve the suggestions by storing words that were frequently selected by user in an L\+FU cache. The code works for all words, but we\textquotesingle{}re loading C++ syntax words in our test cases.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysubsubsection{Sample Test Cases}\label{md__r_e_a_d_m_e_autotoc_md1}
-Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva.
+\mbox{\hyperlink{class_trie}{Trie}} is a tree data structure which is used to store a key (a string). The main advantage of trie is efficient searching done in O(length\+\_\+of\+\_\+key) which is very fast compared to naive search where we check every word in the dictionary for a match. Using a preloaded dictionary, the algorithm can suggest words and improve the suggestions by storing words that were frequently selected by user in an L\+FU cache. The code works for all words, but we\textquotesingle{}re loading C++ syntax words in our test cases.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysubsection{Members}\label{md__r_e_a_d_m_e_autotoc_md1}
 
-The code performs the following operations. The index will select the corresponding operation.
+\begin{DoxyEnumerate}
+\item Anirudh Lakkaraju (2017B4\+A\+A1376H)
+\item Akash Singh Chauhan (2017B4\+A\+A1484H)
+\item Vishesh Jain (2017B5\+A\+A1158H)
+\item Kirti Vatshal Mishra (2017B4\+A\+A0995H)
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsubsection{Sample Test Cases}\label{md__r_e_a_d_m_e_autotoc_md2}
+Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva. ~\newline
+ The code performs the following operations. The index will select the corresponding operation.
 
 
 \begin{DoxyEnumerate}
@@ -14,7 +20,7 @@ The code performs the following operations. The index will select the correspond
 \item Check the L\+FU cache -\/ Allows user to check the cache contents. ~\newline
 
 \item Exit -\/Terminate loop.
-\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsubsection{Input}\label{md__r_e_a_d_m_e_autotoc_md2}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsubsection{Input}\label{md__r_e_a_d_m_e_autotoc_md3}
 1 ~\newline
  5 ~\newline
  make\+\_\+pair ~\newline
@@ -22,7 +28,7 @@ The code performs the following operations. The index will select the correspond
  max\+\_\+element ~\newline
  make\+\_\+tuple ~\newline
  malloc ~\newline
-\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md3}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md4}
 2 ~\newline
  ma ~\newline
  Select \char`\"{}make\+\_\+pair\char`\"{} using the index.
@@ -35,14 +41,14 @@ The code performs the following operations. The index will select the correspond
  ma ~\newline
  Notice that \char`\"{}make\+\_\+tuple\char`\"{} is ranked above \char`\"{}make\+\_\+pair\char`\"{}, even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.
 
-The cache can be checked anytime for frequency of usage (Operation 3).\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{I\+N\+P\+UT}\label{md__r_e_a_d_m_e_autotoc_md4}
+The cache can be checked anytime for frequency of usage (Operation 3).\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{I\+N\+P\+UT}\label{md__r_e_a_d_m_e_autotoc_md5}
 1 ~\newline
  4 ~\newline
  int ~\newline
  int8\+\_\+t ~\newline
  int16\+\_\+t ~\newline
  int32\+\_\+t ~\newline
- int64\+\_\+t\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md5}
+ int64\+\_\+t\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsubsection{Output}\label{md__r_e_a_d_m_e_autotoc_md6}
 2 ~\newline
  int ~\newline
  Select \char`\"{}int16\+\_\+t\char`\"{} using the index.
@@ -55,5 +61,5 @@ The cache can be checked anytime for frequency of usage (Operation 3).\hypertarg
  int ~\newline
  Notice that \char`\"{}int64\+\_\+t\char`\"{} is ranked above \char`\"{}int8\+\_\+t\char`\"{}, even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.
 
-Again the cache can be checked anyime for frequency of usage(\+Operation 3).\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsubsection{Note -\/}\label{md__r_e_a_d_m_e_autotoc_md6}
+Again the cache can be checked anyime for frequency of usage(\+Operation 3).\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsubsection{Note -\/}\label{md__r_e_a_d_m_e_autotoc_md7}
 Load the dictionary only O\+N\+CE for a test case. 

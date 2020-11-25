@@ -5,10 +5,15 @@ Our project is to implement Auto Complete using trie data structure. Our applica
 Trie is a tree data structure which is used to store a key (a string). The main advantage of trie is efficient searching done in O(length_of_key) which is very fast compared to naive search where we check every word in the dictionary for a match. Using a preloaded dictionary, the algorithm can suggest words and improve the suggestions by storing words that were frequently selected by user in an LFU cache. The code works for all words, but we're loading C++ syntax words in our test cases. 
 
 
+### Members
+1. Anirudh Lakkaraju  (2017B4AA1376H)
+2. Akash Singh Chauhan (2017B4AA1484H)
+3. Vishesh Jain  (2017B5AA1158H)
+4. Kirti Vatshal Mishra (2017B4AA0995H)
+
+
 #### Sample Test Cases
-Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva.
-
-
+Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva.  
 The code performs the following operations. The index will select the corresponding operation. 
 
 1. Load dictionary - Allows user to load desired dictionary into Trie object. First line requires size of dictionary (n). Next n lines are the words to be loaded.  

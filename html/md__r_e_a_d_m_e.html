@@ -97,10 +97,18 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizab
 <div class="contents">
 <div class="textblock"><p>Our project is to implement Auto Complete using trie data structure. Our application targets coding text editiors. Many text editors, especially web browser editors, like Jdoodle do not have fast autocomplete.</p>
 <p><a class="el" href="class_trie.html" title="The class for Trie data structure, whose objects contain loaded dictionary.">Trie</a> is a tree data structure which is used to store a key (a string). The main advantage of trie is efficient searching done in O(length_of_key) which is very fast compared to naive search where we check every word in the dictionary for a match. Using a preloaded dictionary, the algorithm can suggest words and improve the suggestions by storing words that were frequently selected by user in an LFU cache. The code works for all words, but we're loading C++ syntax words in our test cases.</p>
-<h3><a class="anchor" id="autotoc_md1"></a>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Members</h2>
+<ol type="1">
+<li>Anirudh Lakkaraju (2017B4AA1376H)</li>
+<li>Akash Singh Chauhan (2017B4AA1484H)</li>
+<li>Vishesh Jain (2017B5AA1158H)</li>
+<li>Kirti Vatshal Mishra (2017B4AA0995H)</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md2"></a>
 Sample Test Cases</h3>
-<p>Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva.</p>
-<p>The code performs the following operations. The index will select the corresponding operation.</p>
+<p>Please follow procedure as explained and notice the outputs. There is no concrete output, as it is more of an interactive code. The working will be explained properly in the viva. <br  />
+ The code performs the following operations. The index will select the corresponding operation.</p>
 <ol type="1">
 <li>Load dictionary - Allows user to load desired dictionary into <a class="el" href="class_trie.html" title="The class for Trie data structure, whose objects contain loaded dictionary.">Trie</a> object. First line requires size of dictionary (n). Next n lines are the words to be loaded. <br  />
 </li>
@@ -110,7 +118,7 @@ Sample Test Cases</h3>
 </li>
 <li>Exit -Terminate loop.</li>
 </ol>
-<h3><a class="anchor" id="autotoc_md2"></a>
+<h3><a class="anchor" id="autotoc_md3"></a>
 Input</h3>
 <p>1 <br  />
  5 <br  />
@@ -120,7 +128,7 @@ Input</h3>
  make_tuple <br  />
  malloc <br  />
 </p>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<h3><a class="anchor" id="autotoc_md4"></a>
 Output</h3>
 <p>2 <br  />
  ma <br  />
@@ -132,7 +140,7 @@ Output</h3>
  ma <br  />
  Notice that "make_tuple" is ranked above "make_pair", even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.</p>
 <p>The cache can be checked anytime for frequency of usage (Operation 3).</p>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h3><a class="anchor" id="autotoc_md5"></a>
 INPUT</h3>
 <p>1 <br  />
  4 <br  />
@@ -141,7 +149,7 @@ INPUT</h3>
  int16_t <br  />
  int32_t <br  />
  int64_t</p>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md6"></a>
 Output</h3>
 <p>2 <br  />
  int <br  />
@@ -153,7 +161,7 @@ Output</h3>
  int <br  />
  Notice that "int64_t" is ranked above "int8_t", even though the latter is lexicographically smaller. This is because if multiple words share the max frequency, the cache return the most recently used word.</p>
 <p>Again the cache can be checked anyime for frequency of usage(Operation 3).</p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Note -</h3>
 <p>Load the dictionary only ONCE for a test case. </p>
 </div></div><!-- contents -->
