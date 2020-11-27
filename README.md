@@ -6,7 +6,7 @@ Trie is a tree data structure which is used to store a key (a string). The main 
 
 
 ### Members
-1. Anirudh Lakkaraju  (2017B4AA1376H)
+1. Anirudh Lakkaraju (2017B4AA1376H)
 2. Akash Singh Chauhan (2017B4AA1484H)
 3. Vishesh Jain  (2017B5AA1158H)
 4. Kirti Vatshal Mishra (2017B4AA0995H)
