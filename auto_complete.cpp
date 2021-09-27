@@ -25,7 +25,7 @@ struct TrieNode
 /// Least Frequently Used (LFU) Cache class to store most frequently selected words. @n
 /// LFU cache has a limited capacity. Once the max capacity is reached,
 /// the word that is least frequently used is ejected. @n
-/// If two words share the same frequency, the word that was most frequently used is ranked higher. @n 
+/// If two words share the same frequency, the word that was most recently used is ranked higher. @n 
 /// This is the major reason why LFU cache is better than a simple frequency table. 
 /// It resolves clashes in O(1) time.
 
